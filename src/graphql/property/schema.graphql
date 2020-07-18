@@ -1,0 +1,33 @@
+type Property {
+  id: Int
+  name: String
+  street: String
+  city: String
+  state: String
+  available: Boolean
+  sales_status: String
+  construction_status: String
+  developer: String
+  floors: Int
+  units: [Unit]
+}
+
+type Unit {
+  id: Int
+  name: String
+  price: String
+  floor: Int
+  bedrooms: Int
+  bathrooms: Int
+  available: Boolean
+}
+
+input Filter {
+  key: String
+  term: String
+}
+
+
+type Query {
+  Property(offset: Int, limit: Int, order: String, filter: [Filter]): [Property]
+}
